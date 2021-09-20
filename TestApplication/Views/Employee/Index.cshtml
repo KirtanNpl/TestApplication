@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Infrastructure.Entity.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="SaveEmployee">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Emp_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entry_By)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entry_Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entry_By)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entry_Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "UpdateEmployee", new { id = item.Employee_Id }) 
+                
+                @Html.ActionLink("Delete", "DeleteEmployee", new {  id=item.Employee_Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
